@@ -44,3 +44,20 @@ print(lr.coef_)
 print(lr.predict(0))
 #prints prediction for x=10
 print(lr.predict(10))
+
+#x= TV advertising, y=sales
+featureCols=['TV']
+X=data[featureCols]
+y=data.Sales
+ 
+#build the model
+lr=LinearRegression()
+lr.fit(X,y)
+
+# plot the observed data
+data.plot(kind='scatter', x='TV', y='Sales')
+
+# plot the regression line
+plt.plot(X, lr.predict(X), c='red', linewidth=2)
+
+lr.score(X,y)
